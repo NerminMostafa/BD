@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mdamedo 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============ LOCK SCREEN ============ -->
+<div id="lock-screen">
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <div class="lock-card">
+    <span class="lock-icon">🔒</span>
+    <h1 class="lock-title">A Secret Just For You</h1>
+    <p class="lock-subtitle">Enter your special pin to unlock something beautiful...</p>
+
+    <div class="pin-display" id="pinDisplay">
+      <div class="pin-dot" id="d0"></div>
+      <div class="pin-dot" id="d1"></div>
+      <div class="pin-dot" id="d2"></div>
+      <div class="pin-dot" id="d3"></div>
+      <div class="pin-dot" id="d4"></div>
+      <div class="pin-dot" id="d5"></div>
+      <div class="pin-dot" id="d6"></div>
+    </div>
+
+    <div class="keypad">
+      <button class="key" onclick="pressKey('1')">1</button>
+      <button class="key" onclick="pressKey('2')">2</button>
+      <button class="key" onclick="pressKey('3')">3</button>
+      <button class="key" onclick="pressKey('4')">4</button>
+      <button class="key" onclick="pressKey('5')">5</button>
+      <button class="key" onclick="pressKey('6')">6</button>
+      <button class="key" onclick="pressKey('7')">7</button>
+      <button class="key" onclick="pressKey('8')">8</button>
+      <button class="key" onclick="pressKey('9')">9</button>
+      <button class="key clear" onclick="clearPin()">⌫ Clear</button>
+      <button class="key zero" onclick="pressKey('0')">0</button>
+      <button class="key enter" onclick="checkPin()">Enter ✦</button>
+    </div>
+
+    <p class="error-msg" id="errorMsg">Hmm, that's not right... try again 💕</p>
+    <p class="hint">Hint: Think of a very special date 🎂</p>
+  </div>
+</div>
+
+<!-- ============ BIRTHDAY PAGE ============ -->
+<div id="birthday-page">
+  <div class="balloon-container" id="balloonContainer"></div>
+
+  <audio id="birthdaySong" loop>
+    <source src="Birthday Song Piano.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HERO -->
+  <div class="section hero">
+    <div class="hero-tag">✨ Today is a Very Special Day ✨</div>
+    <h1>Happy Birthday Sweetheart</h1>
+    <div class="hero-age">My Love is 24 Today 🎂</div>
+    <p class="hero-sub">You make every single day feel like a dream</p>
+  </div>
+
+  <div class="divider">♡ ✦ ♡ ✦ ♡</div>
+
+  <!-- CAKE -->
+  <div class="cake-section">
+    <div class="cake-wrapper">
+      <svg class="cake-svg" viewBox="0 0 340 320" width="340" height="320" xmlns="http://www.w3.org/2000/svg">
+        <!-- Plate shadow -->
+        <ellipse cx="170" cy="298" rx="100" ry="12" fill="rgba(196,83,107,0.12)"/>
+
+        <!-- Candles -->
+        <g id="candles">
+          <!-- candle 1 -->
+          <rect x="95" y="80" width="14" height="50" rx="7" fill="#a8d8ea"/>
+          <ellipse cx="102" cy="80" rx="7" ry="4" fill="#7fc4d8"/>
+          <!-- flame 1 -->
+          <g class="candle-flame">
+            <ellipse cx="102" cy="70" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="102" cy="68" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="102" cy="66" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 2 -->
+          <rect x="118" y="72" width="14" height="58" rx="7" fill="#ffb3c6"/>
+          <ellipse cx="125" cy="72" rx="7" ry="4" fill="#f08"/>
+          <!-- flame 2 -->
+          <g class="candle-flame" style="animation-delay:0.1s">
+            <ellipse cx="125" cy="62" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="125" cy="60" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="125" cy="58" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 3 -->
+          <rect x="141" y="68" width="14" height="62" rx="7" fill="#c3f0ca"/>
+          <ellipse cx="148" cy="68" rx="7" ry="4" fill="#7dd9a0"/>
+          <!-- flame 3 -->
+          <g class="candle-flame" style="animation-delay:0.2s">
+            <ellipse cx="148" cy="58" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="148" cy="56" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="148" cy="54" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 4 -->
+          <rect x="164" y="64" width="14" height="66" rx="7" fill="#ffe5b4"/>
+          <ellipse cx="171" cy="64" rx="7" ry="4" fill="#ffc233"/>
+          <!-- flame 4 -->
+          <g class="candle-flame" style="animation-delay:0.3s">
+            <ellipse cx="171" cy="54" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="171" cy="52" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="171" cy="50" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 5 -->
+          <rect x="187" y="68" width="14" height="62" rx="7" fill="#e0c3fc"/>
+          <ellipse cx="194" cy="68" rx="7" ry="4" fill="#b48cf5"/>
+          <!-- flame 5 -->
+          <g class="candle-flame" style="animation-delay:0.15s">
+            <ellipse cx="194" cy="58" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="194" cy="56" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="194" cy="54" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 6 -->
+          <rect x="210" y="72" width="14" height="58" rx="7" fill="#ffb3c6"/>
+          <ellipse cx="217" cy="72" rx="7" ry="4" fill="#f08"/>
+          <!-- flame 6 -->
+          <g class="candle-flame" style="animation-delay:0.25s">
+            <ellipse cx="217" cy="62" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="217" cy="60" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="217" cy="58" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+
+          <!-- candle 7 -->
+          <rect x="233" y="80" width="14" height="50" rx="7" fill="#a8d8ea"/>
+          <ellipse cx="240" cy="80" rx="7" ry="4" fill="#7fc4d8"/>
+          <!-- flame 7 -->
+          <g class="candle-flame" style="animation-delay:0.05s">
+            <ellipse cx="240" cy="70" rx="5" ry="10" fill="#ffd166" opacity="0.9"/>
+            <ellipse cx="240" cy="68" rx="3" ry="6" fill="#ff9a4a"/>
+            <ellipse cx="240" cy="66" rx="1.5" ry="3" fill="white" opacity="0.6"/>
+          </g>
+        </g>
+
+        <!-- Top frosting drip -->
+        <path d="M70 130 Q85 115 100 130 Q115 115 130 130 Q145 115 160 130 Q175 115 190 130 Q205 115 220 130 Q235 115 250 130 Q265 115 270 130 L270 145 L70 145 Z" fill="#fff0f5"/>
+
+        <!-- Top tier -->
+        <rect x="70" y="130" width="200" height="55" rx="4" fill="#f9c5d4"/>
+        <!-- Pink stripe decoration -->
+        <rect x="70" y="148" width="200" height="8" fill="rgba(255,255,255,0.35)"/>
+        <!-- Sprinkles top tier -->
+        <g fill="#fff" opacity="0.7">
+          <rect x="88" y="135" width="8" height="3" rx="1.5" transform="rotate(-30 88 135)"/>
+          <rect x="112" y="142" width="8" height="3" rx="1.5" transform="rotate(20 112 142)"/>
+          <rect x="145" y="137" width="8" height="3" rx="1.5" transform="rotate(-45 145 137)"/>
+          <rect x="178" y="143" width="8" height="3" rx="1.5" transform="rotate(15 178 143)"/>
+          <rect x="210" y="138" width="8" height="3" rx="1.5" transform="rotate(-25 210 138)"/>
+          <rect x="242" y="140" width="8" height="3" rx="1.5" transform="rotate(40 242 140)"/>
+        </g>
+        <!-- "24" text on top tier -->
+        <text x="170" y="167" text-anchor="middle" font-family="Dancing Script" font-size="22" fill="white" font-weight="700">24</text>
+
+        <!-- Middle frosting drip -->
+        <path d="M50 185 Q65 170 80 185 Q97 170 114 185 Q131 170 148 185 Q165 170 182 185 Q199 170 216 185 Q233 170 250 185 Q267 170 284 185 Q295 172 290 185 L290 200 L50 200 Z" fill="#fff0f5"/>
+
+        <!-- Middle tier -->
+        <rect x="50" y="185" width="240" height="60" rx="4" fill="#e8738a"/>
+        <!-- Lighter stripe -->
+        <rect x="50" y="202" width="240" height="9" fill="rgba(255,255,255,0.25)"/>
+        <!-- Hearts on middle tier -->
+        <text x="100" y="225" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.7)">♡</text>
+        <text x="140" y="222" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.5)">♡</text>
+        <text x="170" y="228" text-anchor="middle" font-size="20" fill="rgba(255,255,255,0.8)">♡</text>
+        <text x="205" y="222" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.5)">♡</text>
+        <text x="245" y="225" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.7)">♡</text>
+
+        <!-- Bottom frosting drip -->
+        <path d="M30 245 Q48 228 66 245 Q84 228 102 245 Q120 228 138 245 Q156 228 174 245 Q192 228 210 245 Q228 228 246 245 Q264 228 282 245 Q300 230 310 245 L310 262 L30 262 Z" fill="#fff0f5"/>
+
+        <!-- Bottom tier -->
+        <rect x="30" y="245" width="280" height="50" rx="4" fill="#c4536b"/>
+        <!-- Stripe -->
+        <rect x="30" y="261" width="280" height="9" fill="rgba(255,255,255,0.2)"/>
+        <!-- Dot decorations -->
+        <g fill="rgba(255,255,255,0.6)">
+          <circle cx="65" cy="270" r="4"/>
+          <circle cx="100" cy="270" r="4"/>
+          <circle cx="135" cy="270" r="4"/>
+          <circle cx="170" cy="270" r="4"/>
+          <circle cx="205" cy="270" r="4"/>
+          <circle cx="240" cy="270" r="4"/>
+          <circle cx="275" cy="270" r="4"/>
+        </g>
+
+        <!-- Plate -->
+        <ellipse cx="170" cy="295" rx="140" ry="10" fill="#f5dbe0"/>
+        <ellipse cx="170" cy="293" rx="140" ry="8" fill="white" stroke="#ecc8d0" stroke-width="1"/>
+
+        <!-- Stars -->
+        <text x="50" y="120" font-size="16" fill="#ffd166" opacity="0.8">✨</text>
+        <text x="280" y="110" font-size="14" fill="#ffd166" opacity="0.8">✨</text>
+        <text x="290" y="200" font-size="12" fill="#e8738a" opacity="0.6">✦</text>
+        <text x="30" y="210" font-size="12" fill="#e8738a" opacity="0.6">✦</text>
+      </svg>
+    </div>
+
+    <div style="text-align:center; margin-top: 20px;">
+      <p style="font-family:'Dancing Script',cursive; font-size:26px; color:var(--deep-rose);">Make a wish, my love 🕯️</p>
+      <p style="font-family:'Lora',serif; font-style:italic; font-size:14px; color:var(--soft); margin-top:6px;">Close your eyes and let it come true</p>
+    </div>
+  </div>
+
+  <div class="divider">♡ ✦ ♡ ✦ ♡</div>
+
+  <!-- PHOTO ALBUM — SCRAPBOOK STYLE -->
+  <div class="section">
+    <div class="album-page-bg">
+      <div class="album-heading">
+        <h2>Our Memories 📷</h2>
+        <p>Every moment with you is my favourite story</p>
+      </div>
+
+      <!-- Row 1 -->
+      <div class="album-row">
+        <div class="pol-wrap" style="transform: rotate(-6deg) translateY(10px);">
+          <div class="tape" style="top:-9px; left:50%; transform:translateX(-50%) rotate(-2deg);"></div>
+          <div class="polaroid" onclick="openLightbox(this)"
+            data-emoji="📸" data-bg="pbg-1" data-caption="The day we met"
+            data-message="My favourite place in the world isn't a location. it's wherever you are. Being with you is where I belong, always.">
+            <div class="photo-inner pbg-1">
+              <img src="1.jpg" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="pol-caption">The day we met</div>
+          </div>
+          <div class="sticker" style="top:-14px; right:-10px;">💕</div>
+        </div>
+
+        <div class="pol-wrap" style="transform: rotate(2deg) translateY(-14px); z-index:3;">
+          <div class="tape" style="top:-9px; left:50%; transform:translateX(-50%) rotate(3deg);"></div>
+          <div class="polaroid" style="width:190px;" onclick="openLightbox(this)"
+            data-emoji="🌅" data-bg="pbg-4" data-caption="I love you 💕"
+            data-message="You will always be my comfort zone and my safe place. I love you to the moon, the stars, and every universe beyond.">
+            <div class="photo-inner pbg-4" style="width:170px; height:170px; font-size:44px;"><img src="2.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="pol-caption" style="font-size:17px;">I love you</div>
+          </div>
+          <div class="sticker" style="bottom:20px; right:-14px;">🌹</div>
+          <div class="sticker" style="top:8px; left:-12px;">✨</div>
+        </div>
+
+        <div class="pol-wrap" style="transform: rotate(5deg) translateY(6px);">
+          <div class="tape" style="top:-9px; left:50%; transform:translateX(-50%) rotate(1deg);"></div>
+          <div class="polaroid" onclick="openLightbox(this)"
+            data-emoji="✈️" data-bg="pbg-3" data-caption="Felt like home"
+            data-message="Everytime I look at you and wonder how I got so lucky to have someone so wonderful in my life. You hold my whole heart.">
+            <div class="photo-inner pbg-3"><img src="3.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="pol-caption">Felt like home</div>
+          </div>
+          <div class="sticker" style="bottom:30px; left:-12px;">🗺️</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; font-size:11px; color:rgba(196,83,107,0.25); letter-spacing:4px; margin: 14px 0; position:relative; z-index:1;">· · · · · · · · · · · · · · · · · · · · ·</div>
+
+      <!-- Row 2 -->
+      <div class="album-row">
+        <div class="pol-wrap" style="transform: rotate(4deg) translateY(8px);">
+          <div class="tape" style="top:-9px; left:40%; transform:translateX(-50%) rotate(-4deg);"></div>
+          <div class="polaroid" onclick="openLightbox(this)"
+            data-emoji="🌙" data-bg="pbg-5" data-caption="Late night talks"
+            data-message="Some of my favourite moments are our late nights — just us, talking about everything and nothing. I treasure every single word.">
+            <div class="photo-inner pbg-5"><img src="4.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="pol-caption">Late night talks</div>
+          </div>
+          <div class="sticker" style="top:-12px; right:-8px;">⭐</div>
+        </div>
+
+        <div class="pol-wrap" style="transform: rotate(-3deg) translateY(-10px); z-index:3;">
+          <div class="tape" style="top:-9px; left:50%; transform:translateX(-50%) rotate(2deg);"></div>
+          <div class="polaroid" style="width:190px;" onclick="openLightbox(this)"
+            data-emoji="💞" data-bg="pbg-2" data-caption="Just us 💞"
+            data-message="Sending a little extra love to the most hardworking man I know. I will always be proud of you and your effort.">
+            <div class="photo-inner pbg-2" style="width:170px; height:170px; font-size:42px;"><img src="5.jpeg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="pol-caption" style="font-size:17px;">Just us</div>
+          </div>
+          <div class="sticker" style="bottom:22px; right:-14px;">💞</div>
+          <div class="sticker" style="top:10px; left:-10px;">💫</div>
+        </div>
+
+        <div class="pol-wrap" style="transform: rotate(-5deg) translateY(12px);">
+          <div class="tape" style="top:-9px; left:60%; transform:translateX(-50%) rotate(3deg);"></div>
+          <div class="polaroid" onclick="openLightbox(this)"
+            data-emoji="🤗" data-bg="pbg-6" data-caption="A day i'll never forget"
+            data-message="This was the beginning of everything. I remember this moment like it was yesterday and I will carry it in my heart forever.">
+            <div class="photo-inner pbg-6"><img src="6.jpg" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="pol-caption">A day i'll never forget</div>
+          </div>
+          <div class="sticker" style="bottom:28px; right:-12px;">💝</div>
+        </div>
+      </div>
+
+      <p class="album-upload-hint"> Tap any photo to open it ✨</p>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <div id="lb-backdrop" onclick="closeLightbox()"></div>
+    <div id="lb-card">
+      <button id="lb-close" onclick="closeLightbox()">✕</button>
+      <div id="lb-photo"></div>
+      <div id="lb-caption"></div>
+      <div id="lb-message"></div>
+      <div id="lb-hearts">♡ ✦ ♡</div>
+    </div>
+  </div>
+
+  <div class="divider">♡ ✦ ♡ ✦ ♡</div>
+
+  <!-- LOVE LETTER SLIDER -->
+  <div class="section">
+    <h2 class="msg-open-title">Things I Want You To Know 💌</h2>
+    <p class="msg-open-sub">Words I carry in my heart, written just for you</p>
+
+    <div class="love-slider">
+
+      <button class="love-arrow prev-letter">❮</button>
+
+      <div class="letter-wrapper">
+
+        <div class="love-letter-card active">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ one ♡</div>
+          <p>Every single moment with you is a blessing, and I am so grateful to have you in my life. May this year bring you endless joy and all your heart desires.</p>
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ two ♡</div>
+          <p>You are my home, my biggest supporter, and the person I always want to share every joy and challenge with. Thank you for being exactly who you are.</p>
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ three ♡</div>
+          <p>You make my world brighter, my heart calmer, and my life more beautiful every single day.</p>
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ four ♡</div>
+          <p>Growing old with you is my greatest adventure. I love you more today than I did yesterday, and I will love you more tomorrow.</p>
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ five ♡</div>
+          <p>Meeting you was the best thing that ever happened to me. Every single day with you is a gift, and I love you more than words can say.</p>
+
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ six ♡</div>
+          <p>Thank you for always being my safe place and my favorite person. I love you.</p>
+        </div>
+
+        <div class="love-letter-card">
+          <div class="letter-seal">💌</div>
+          <div class="msg-number">♡ seven ♡</div>
+          <p>I will always choose you every single day.</p>
+        </div>
+
+      </div>
+
+      <button class="love-arrow next-letter">❯</button>
+
+    </div>
+
+    <div class="letter-counter">
+      <span id="letterCurrent">1</span> / 7
+    </div>
+  </div>
+
+  <div class="divider">♡ ✦ ♡ ✦ ♡</div>
+
+  <!-- FINAL WISH -->
+  <div class="section wish-section">
+    <div class="wish-card">
+      <span class="wish-emoji">🎂</span>
+      <div class="wish-text">Happy 24th Birthday, My Love</div>
+      <p class="wish-sub">
+        May this year bring you everything your heart desires.<br>
+        May you wake up every morning knowing how deeply you are loved.<br>
+        May all your dreams find their way to you.<br><br>
+        And may we grow old together,<br>
+        still laughing, still in love, still choosing each other every single day.
+      </p>
+      <div class="forever-tag">Together Forever ♡</div>
+    </div>
+  </div>
+
+  <!-- Subtle footer -->
+  <div style="text-align:center; padding-bottom:40px;">
+    <p style="font-family:'Dancing Script',cursive; font-size:22px; color:var(--rose); opacity:0.6;">Made with all the love in my heart 💕</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
